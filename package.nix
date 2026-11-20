@@ -2,6 +2,8 @@
 , rustPlatform
 , fetchFromGitHub
 , git
+, pkg-config
+, oniguruma
 ,
 }:
 
@@ -21,6 +23,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
   cargoHash = "sha256-+HbzMHq3OCuF+RCGXaLSbN4+xcFTYyKUI54advFKcEU=";
 
   strictDeps = true;
+
+  nativeBuildInputs = [ pkg-config ];
+
+  buildInputs = [ oniguruma ];
 
   nativeCheckInputs = [ git ];
 
